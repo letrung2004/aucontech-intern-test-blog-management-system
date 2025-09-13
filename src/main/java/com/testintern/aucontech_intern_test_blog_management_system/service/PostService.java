@@ -97,4 +97,10 @@ public class PostService {
         postRepository.delete(post);
     }
 
+    public PostResponse getPostById(String postId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new AppException(ErrorCode.POST_NOT_FOUND));
+        return toResponse(post);
+    }
+
 }

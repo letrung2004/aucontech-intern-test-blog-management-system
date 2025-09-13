@@ -51,4 +51,12 @@ public class PostController {
         postService.deletePost(postId);
         return ApiResponse.<Void>builder().build();
     }
+
+    @GetMapping("/{postId}")
+    public ApiResponse<PostResponse> getPostById(@PathVariable String postId) {
+        return ApiResponse.<PostResponse>builder()
+                .result(postService.getPostById(postId))
+                .build();
+    }
+
 }

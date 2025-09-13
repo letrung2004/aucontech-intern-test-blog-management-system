@@ -18,6 +18,7 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.testintern.aucontech_intern_test_blog_management_system.dto.request.AuthenticationRequest;
 import com.testintern.aucontech_intern_test_blog_management_system.dto.response.AuthenticationResponse;
+import com.testintern.aucontech_intern_test_blog_management_system.dto.response.UserResponse;
 import com.testintern.aucontech_intern_test_blog_management_system.entity.User;
 import com.testintern.aucontech_intern_test_blog_management_system.exception.AppException;
 import com.testintern.aucontech_intern_test_blog_management_system.exception.ErrorCode;
@@ -40,7 +41,7 @@ public class AuthenticationService {
     @Value("${jwt.valid-duration}")
     protected long VALID_DURATION;
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse login(AuthenticationRequest request) {
         var user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
 
@@ -53,6 +54,11 @@ public class AuthenticationService {
 
         return AuthenticationResponse.builder()
                 .token(token)
+                .user(new UserResponse(
+                        user.getId(),
+                        user.getUsername(),
+                        user.getFullName(),
+                        user.getEmail()))
                 .build();
     }
 

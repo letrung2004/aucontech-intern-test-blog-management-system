@@ -30,10 +30,10 @@ public class UserController {
                 .build();
     }
 
-    @PostMapping("/token")
+    @PostMapping("/login")
     public ApiResponse<AuthenticationResponse> getToken(@RequestBody AuthenticationRequest request) {
         return ApiResponse.<AuthenticationResponse>builder()
-                .result(authenticationService.authenticate(request))
+                .result(authenticationService.login(request))
                 .build();
     }
 
