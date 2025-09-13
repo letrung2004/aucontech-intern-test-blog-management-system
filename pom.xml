@@ -7,7 +7,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.5</version>
 		<relativePath/>
-		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.testintern</groupId>
 	<artifactId>aucontech-intern-test-blog-management-system</artifactId>
@@ -51,7 +50,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
@@ -60,7 +59,7 @@
 			<groupId>com.nimbusds</groupId>
 			<artifactId>nimbus-jose-jwt</artifactId>
 			<version>9.30.1</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>

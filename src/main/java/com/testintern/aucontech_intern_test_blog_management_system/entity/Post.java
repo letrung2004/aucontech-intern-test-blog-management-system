@@ -2,6 +2,7 @@ package com.testintern.aucontech_intern_test_blog_management_system.entity;
 
 import java.time.Instant;
 
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,7 +25,9 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @NonNull
     private String title;
+    @NonNull
     private String content;
     private Instant createdAt;
     private Instant updatedAt;

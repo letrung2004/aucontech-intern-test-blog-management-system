@@ -12,14 +12,14 @@ import com.testintern.aucontech_intern_test_blog_management_system.exception.App
 import com.testintern.aucontech_intern_test_blog_management_system.exception.ErrorCode;
 import com.testintern.aucontech_intern_test_blog_management_system.repository.UserRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserService {
 
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserResponse createUser(UserCreateRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) {
