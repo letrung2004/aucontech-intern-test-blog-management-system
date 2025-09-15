@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 # Run stage
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/DrComputer-0.0.1-SNAPSHOT.war drcomputer.war
+COPY --from=build /app/target/aucontech-intern-test-blog-management-system-0.0.1-SNAPSHOT.war aucontech-intern-test-blog-management-system.war
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "drcomputer.war"]
+ENTRYPOINT ["java", "-jar", "aucontech-intern-test-blog-management-system.war"]
